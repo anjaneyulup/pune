@@ -1,0 +1,12 @@
+--- # pune server setup
+- hosts: webserver
+  user: hallo
+  sudo: yes
+  tasks:
+  - name: installing httpd package
+    yum: name=httpd state=installed
+  - name: copy index.html
+    copy: src=index.html dest=/var/www/html/index.html
+  - name: start httpd service
+    service: name=httpd state=started
+
